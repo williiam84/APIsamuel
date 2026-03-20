@@ -8,10 +8,17 @@ let index = 0;
 let pontuacao = {};
 let selecionando = false;
 
-// carregar pessoas
-async function carregarPessoas() {
+// =========================
+// CARREGAR PESSOAS
+// =========================
+async function carregarPessoasJogo() {
   try {
     const res = await fetch(API);
+
+    if (!res.ok) {
+      throw new Error("Erro ao buscar dados");
+    }
+
     pessoas = await res.json();
 
     pontuacao = {};
@@ -21,7 +28,7 @@ async function carregarPessoas() {
     pessoas.forEach(p => {
       pontuacao[p.id] = {
         nome: p.nome,
-        descricao: p.descricao, // 👈 ADICIONADO
+        descricao: p.descricao,
         pontos: 0,
         imagem: p.imagem
       };
@@ -35,7 +42,9 @@ async function carregarPessoas() {
   }
 }
 
-// mostrar 2 pessoas
+// =========================
+// MOSTRAR DUPLA
+// =========================
 function mostrarDupla() {
   lista.innerHTML = "";
   selecionando = false;
@@ -57,7 +66,9 @@ function mostrarDupla() {
   criarCard(p2);
 }
 
-// criar card
+// =========================
+// CRIAR CARD
+// =========================
 function criarCard(pessoa) {
   const card = document.createElement("div");
   card.classList.add("card");
@@ -69,7 +80,7 @@ function criarCard(pessoa) {
   card.innerHTML = `
     <img src="${imgUrl}" />
     <h2>${pessoa.nome}</h2>
-    <p>${pessoa.descricao || "Sem descrição"}</p> <!-- 👈 descrição -->
+    <p>${pessoa.descricao || "Sem descrição"}</p>
   `;
 
   card.onclick = () => selecionarPessoa(pessoa, card);
@@ -77,19 +88,21 @@ function criarCard(pessoa) {
   lista.appendChild(card);
 }
 
-// selecionar pessoa
+// =========================
+// SELECIONAR PESSOA
+// =========================
 function selecionarPessoa(pessoa, cardClicado) {
   if (selecionando) return;
   selecionando = true;
 
-  // efeito visual no card escolhido
+  // destaque visual
   cardClicado.style.border = "3px solid #00f2fe";
   cardClicado.style.transform = "scale(1.1)";
 
   // pontuação
   pontuacao[pessoa.id].pontos += 1;
 
-  // efeito no não escolhido
+  // desbotar o outro card
   const cards = document.querySelectorAll(".card");
   cards.forEach(card => {
     if (card !== cardClicado) {
@@ -97,14 +110,16 @@ function selecionarPessoa(pessoa, cardClicado) {
     }
   });
 
-  // delay antes de próxima dupla
+  // próxima rodada
   setTimeout(() => {
     index += 2;
     mostrarDupla();
   }, 600);
 }
 
-// mostrar resultado final
+// =========================
+// RESULTADO FINAL
+// =========================
 function mostrarResultado() {
   lista.innerHTML = "<h2>🏆 Resultado Final</h2>";
 
@@ -122,17 +137,19 @@ function mostrarResultado() {
     item.innerHTML = `
       <img src="${imgUrl}" />
       <h3>${i + 1}º - ${p.nome}</h3>
-      <p>${p.descricao || "Sem descrição"}</p> <!-- 👈 descrição -->
+      <p>${p.descricao || "Sem descrição"}</p>
       <p>Pontos: ${p.pontos}</p>
     `;
-      lista.style.color = "black"
+
     lista.appendChild(item);
   });
 
   console.log("Ranking:", ranking);
 }
 
-// iniciar
+// =========================
+// INICIAR JOGO
+// =========================
 startBtn.addEventListener("click", () => {
-  carregarPessoas();
+  carregarPessoasJogo();
 });

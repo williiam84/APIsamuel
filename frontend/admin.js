@@ -1,8 +1,8 @@
+const API = "https://apisamuel.onrender.com/pessoas";
+
 const form = document.getElementById("form");
 const msg = document.getElementById("msg");
 const lista = document.getElementById("lista");
-
-const API = "https://apisamuel.onrender.com/pessoas";
 
 // =========================
 // CADASTRAR PESSOA
@@ -16,6 +16,11 @@ form.addEventListener("submit", async (e) => {
 
   const fileInput = document.getElementById("imagem");
   const imagem = fileInput.files[0];
+
+  if (!nome || !descricao) {
+    msg.innerText = "Preencha todos os campos!";
+    return;
+  }
 
   if (!imagem) {
     msg.innerText = "Selecione uma imagem!";
@@ -34,16 +39,22 @@ form.addEventListener("submit", async (e) => {
       body: formData
     });
 
+    if (!res.ok) {
+      throw new Error("Erro na API");
+    }
+
     await res.json();
 
     msg.innerText = "Pessoa cadastrada com sucesso!";
-    form.reset();
+    msg.style.color = "green";
 
+    form.reset();
     carregarPessoas(); // atualiza lista
 
   } catch (error) {
     console.error("Erro:", error);
     msg.innerText = "Erro ao cadastrar";
+    msg.style.color = "red";
   }
 });
 
@@ -54,6 +65,11 @@ form.addEventListener("submit", async (e) => {
 async function carregarPessoas() {
   try {
     const res = await fetch(API);
+
+    if (!res.ok) {
+      throw new Error("Erro ao buscar dados");
+    }
+
     const pessoas = await res.json();
 
     lista.innerHTML = "";
@@ -62,10 +78,12 @@ async function carregarPessoas() {
       const card = document.createElement("div");
       card.classList.add("card");
 
+      const imgUrl = pessoa.imagem
+        ? `https://apisamuel.onrender.com/uploads/${pessoa.imagem}`
+        : "https://via.placeholder.com/150";
+
       card.innerHTML = `
-        <img src="${pessoa.imagem 
-          ? `https://apisamuel.onrender.com/uploads/${pessoa.imagem}` 
-          : 'https://via.placeholder.com/150'}" />
+        <img src="${imgUrl}" />
         
         <h3>${pessoa.nome}</h3>
 
@@ -81,6 +99,7 @@ async function carregarPessoas() {
 
   } catch (error) {
     console.error("Erro ao buscar pessoas:", error);
+    lista.innerHTML = "<p>Erro ao carregar dados</p>";
   }
 }
 
@@ -90,9 +109,13 @@ async function carregarPessoas() {
 // =========================
 async function deletarPessoa(id) {
   try {
-    await fetch(`${API}/${id}`, {
+    const res = await fetch(`${API}/${id}`, {
       method: "DELETE"
     });
+
+    if (!res.ok) {
+      throw new Error("Erro ao deletar");
+    }
 
     carregarPessoas();
 
