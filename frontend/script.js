@@ -125,7 +125,7 @@ function mostrarResultado() {
       <p>${p.descricao || "Sem descrição"}</p> <!-- 👈 descrição -->
       <p>Pontos: ${p.pontos}</p>
     `;
-
+      lista.style.color = "black"
     lista.appendChild(item);
   });
 
