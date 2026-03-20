@@ -23,6 +23,7 @@ router.post("/", upload.single("imagem"), (req, res) => {
         id: Date.now(),
         nome,
         grupo,
+        descricao,
         imagem: req.file ? req.file.filename : null
     };
 
