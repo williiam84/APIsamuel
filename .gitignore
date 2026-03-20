@@ -1,0 +1,21 @@
+# dependências
+node_modules/
+
+# variáveis de ambiente (SENHAS!)
+.env
+
+# uploads de imagens
+uploads/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# temporários
+*.tmp
+*.temp
