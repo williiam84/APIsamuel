@@ -1,190 +1,4 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  text-align: center;
-  padding: 40px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.grid div{
-    width: 40%;
-    height: 35%;
-}
-
-.card {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.card h3 {
-  margin-top: 10px;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 300px;
-  margin: auto;
-}
-
-input, button {
-  padding: 10px;
-  font-size: 16px;
-}
-
-button {
-  cursor: pointer;
-}
-/*INDEX.HTML*/
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Fundo da página */
-body {
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
-}
-
-/* Container principal */
-.container {
-  background: #fff;
-  padding: 30px;
-  border-radius: 16px;
-  width: 100%;
-  max-width: 420px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-/* Título */
-.container h1 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #333;
-}
-
-/* Inputs */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input[type="text"],
-input[type="file"] {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  outline: none;
-  transition: 0.3s;
-}
-
-input[type="text"]:focus {
-  border-color: #4facfe;
-  box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
-}
-
-/* Botão */
-button {
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  background: #4facfe;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #3a9bff;
-  transform: translateY(-2px);
-}
-
-/* Mensagem */
-#msg {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #333;
-}
-
-/* Lista de pessoas */
-section {
-  width: 100%;
-  max-width: 900px;
-}
-
-.pessoas-div {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-/* Card de pessoa */
-.pessoa {
-  background: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: 0.3s;
-}
-
-.pessoa:hover {
-  transform: translateY(-5px);
-}
-
-/* Imagem */
-.pessoa img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-/* Nome */
-.pessoa h3 {
-  font-size: 18px;
-  color: #333;
-}
-/* Reset */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -192,101 +6,550 @@ section {
   font-family: 'Poppins', sans-serif;
 }
 
-/* Fundo */
+/* FUNDO */
 body {
-  background: linear-gradient(135deg, #0f172a, #020617);
+  background: linear-gradient(135deg, #fff8e1, #f5c144);
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
+  color: #333;
 }
 
-/* Container */
-.container {
+/* HEADER */
+.header {
   width: 100%;
-  max-width: 900px;
+  padding: 25px;
+  background: linear-gradient(90deg, #f5c144, #ffd95a);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   text-align: center;
+  animation: fadeDown 0.6s ease;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 600;
+  color: #4a3200;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6b4a00;
+}
+
+/* INTRO */
+.intro {
+  text-align: center;
+  padding: 20px;
+  max-width: 700px;
+  margin: 20px auto;
+  animation: fadeUp 0.6s ease;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1000px;
+  margin: auto;
   padding: 20px;
 }
 
-/* Título */
-h1 {
+/* CONTROLES */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
   margin-bottom: 20px;
-  font-size: 28px;
-  background: linear-gradient(90deg, #4facfe, #00f2fe);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
-/* Botão começar */
-#startBtn {
-  padding: 14px 25px;
+/* BOTÃO */
+button {
+  padding: 12px 20px;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(90deg, #4facfe, #00f2fe);
-  color: #000;
+  background: linear-gradient(90deg, #f5c144, #ffcf33);
+  color: #4a3200;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
 }
 
-#startBtn:hover {
+button:hover {
   transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Grid das escolhas */
-.grid {
-  margin-top: 30px;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-/* Card de pessoa */
-.card {
+/* INPUT */
+input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
   flex: 1;
-  max-width: 350px;
-  background: #111827;
+  min-width: 200px;
+}
+
+input:focus {
+  border-color: #f5c144;
+  box-shadow: 0 0 5px rgba(245,193,68,0.5);
+}
+
+/* STATUS */
+.status {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* GRID */
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* CARD */
+.card {
+  background: #fff;
   border-radius: 16px;
   overflow: hidden;
+  max-width: 320px;
+  flex: 1;
   cursor: pointer;
   transition: 0.3s;
   border: 2px solid transparent;
+  animation: fadeUp 0.4s ease;
 }
 
-/* Hover */
 .card:hover {
-  transform: scale(1.05);
-  border: 2px solid #4facfe;
+  transform: translateY(-5px) scale(1.02);
+  border-color: #f5c144;
 }
 
-/* Imagem */
+/* IMAGEM */
 .card img {
   width: 100%;
-  height: 300px;
+  height: 260px;
   object-fit: cover;
 }
 
-/* Nome */
+/* TEXTO */
 .card h2 {
-  padding: 15px;
+  padding: 10px;
   font-size: 20px;
 }
 
-/* Responsivo (celular) */
+.card p {
+  padding: 0 10px 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* SELECIONADO */
+.card.selecionado {
+  border: 3px solid #00c853;
+  transform: scale(1.05);
+}
+
+/* PERDEDOR */
+.card.perdedor {
+  opacity: 0.3;
+}
+
+/* RESULTADO */
+.resultado {
+  margin-top: 30px;
+  animation: fadeUp 0.6s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+/* SIDEBAR */
+.sidebar {
+  max-width: 800px;
+  margin: 30px auto;
+  background: #fff3cd;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.sidebar h3 {
+  margin-bottom: 10px;
+}
+
+.sidebar ul {
+  padding-left: 20px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+  color: #6b4a00;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVO */
 @media (max-width: 700px) {
   .grid {
     flex-direction: column;
     align-items: center;
   }
 
-  .card {
-    width: 100%;
-    max-width: 90%;
+  .controls {
+    flex-direction: column;
   }
 
-  .card img {
-    height: 220px;
+  .status {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* FUNDO */
+body {
+  background: linear-gradient(135deg, #fff8e1, #f5c144);
+  min-height: 100vh;
+  color: #333;
+}
+
+/* HEADER */
+.admin-header {
+  background: linear-gradient(90deg, #f5c144, #ffd95a);
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  animation: fadeDown 0.5s ease;
+}
+
+.admin-header h1 {
+  font-size: 28px;
+  color: #4a3200;
+}
+
+.admin-header p {
+  font-size: 14px;
+  color: #6b4a00;
+}
+
+/* CONTAINER */
+.admin-container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+  display: grid;
+  gap: 20px;
+}
+
+/* CARD */
+.admin-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  animation: fadeUp 0.5s ease;
+}
+
+.admin-card h2 {
+  margin-bottom: 20px;
+  color: #4a3200;
+}
+
+/* FORM */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* GRUPO */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+/* INPUTS */
+input,
+textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: 0.3s;
+}
+
+textarea {
+  resize: none;
+  min-height: 80px;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #f5c144;
+  box-shadow: 0 0 6px rgba(245,193,68,0.5);
+}
+
+/* BOTÃO */
+.btn-save {
+  margin-top: 10px;
+  background: linear-gradient(90deg, #f5c144, #ffcf33);
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #4a3200;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-save:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* PREVIEW */
+.preview {
+  text-align: center;
+}
+
+.preview img {
+  max-width: 150px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* MENSAGEM */
+.msg {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* LISTA */
+.pessoas-div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* CARD PESSOA */
+.card {
+  background: #fffdf5;
+  border-radius: 14px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGEM */
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* TEXTO */
+.card h3 {
+  color: #4a3200;
+  margin-bottom: 5px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* BOTÃO EXCLUIR */
+.btn-delete {
+  margin-top: 10px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-delete:hover {
+  background: #e60000;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVO */
+@media (max-width: 700px) {
+  .admin-container {
+    padding: 10px;
+  }
+}
+/* FUNDO ESCURO (overlay) */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+/* ATIVO */
+.popup.ativo {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* CAIXA DO POPUP */
+.popup::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(5px);
+}
+
+/* CONTEÚDO */
+.popup > * {
+  position: relative;
+  z-index: 1;
+}
+
+.popup {
+  flex-direction: column;
+}
+
+/* CARD INTERNO */
+.popup h3,
+.popup .img,
+.popup button {
+  background: white;
+  width: 300px;
+  text-align: center;
+  padding: 15px;
+}
+
+/* TÍTULO */
+.popup h3 {
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(90deg, #f5c144, #ffd95a);
+  color: #4a3200;
+  font-weight: 600;
+}
+
+/* IMAGEM */
+.popup .img {
+  padding: 10px;
+}
+
+.popup .img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* BOTÃO */
+.popup button {
+  border: none;
+  border-radius: 0 0 16px 16px;
+  background: linear-gradient(90deg, #f5c144, #ffcf33);
+  color: #4a3200;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.popup button:hover {
+  transform: scale(1.05);
+  background: #f5c144;
+}
+
+/* ANIMAÇÃO ENTRADA */
+.popup.ativo h3,
+.popup.ativo .img,
+.popup.ativo button {
+  animation: popupEntrada 0.4s ease;
+}
+
+@keyframes popupEntrada {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }

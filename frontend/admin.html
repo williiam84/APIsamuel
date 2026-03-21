@@ -2,34 +2,68 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Admin - Cadastro</title>
+  <title>Painel Administrativo - Lilix On</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
-    <h1>Cadastro de Pessoas</h1>
+  <!-- HEADER -->
+  <header class="admin-header">
+    <h1>Painel Administrativo</h1>
+    <p>Gerencie as pessoas do sistema</p>
+  </header>
 
-    <form id="form">
-      <input type="text" id="nome" placeholder="Nome" required />
+  <!-- CONTAINER PRINCIPAL -->
+  <main class="admin-container">
 
-      <!-- novo campo grupo (se quiser manter do backend) -->
-      <input type="text" id="grupo" placeholder="Grupo" />
+    <!-- FORMULÁRIO -->
+    <section class="admin-card">
+      <h2>Cadastrar Nova Pessoa</h2>
 
-      <!-- novo campo descrição -->
-      <textarea id="descricao" placeholder="Descrição"></textarea>
+      <form id="form" class="admin-form">
 
-      <input type="file" id="imagem" accept="image/*" />
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" id="nome" placeholder="Digite o nome" required>
+        </div>
 
-      <button type="submit">Salvar</button>
-    </form>
+        <div class="form-group">
+          <label>Grupo</label>
+          <input type="text" id="grupo" placeholder="Ex: Amigos, Família">
+        </div>
 
-    <p id="msg"></p>
-  </div>
+        <div class="form-group">
+          <label>Descrição</label>
+          <textarea id="descricao" placeholder="Digite uma descrição"></textarea>
+        </div>
 
-  <section>
-    <div id="lista" class="pessoas-div"></div>
-  </section>
+        <div class="form-group">
+          <label>Imagem</label>
+          <input type="file" id="imagem" accept="image/*">
+        </div>
+
+        <!-- PREVIEW -->
+        <div class="preview">
+          <img id="previewImg" src="" alt="Preview" style="display:none;">
+        </div>
+
+        <button type="submit" class="btn-save">Salvar Pessoa</button>
+
+      </form>
+
+      <p id="msg" class="msg"></p>
+    </section>
+
+    <!-- LISTA -->
+    <section class="admin-card">
+      <h2>Pessoas Cadastradas</h2>
+
+      <div id="lista" class="pessoas-div">
+        <!-- JS insere aqui -->
+      </div>
+    </section>
+
+  </main>
 
   <script src="admin.js"></script>
 </body>
